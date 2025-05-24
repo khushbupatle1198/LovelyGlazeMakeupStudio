@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/aop 
+  http://www.springframework.org/schema/aop/spring-aop.xsd
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/tx 
+  http://www.springframework.org/schema/tx/spring-tx.xsd
+  http://www.springframework.org/schema/mvc 
+  http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan base-package="com.controller" />
+	<context:component-scan base-package="com.dao" />
+	
+	<context:component-scan base-package="com.model" />
+	<context:component-scan base-package="com.service" />
+	
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- Multipart Resolver for file uploads -->
+<bean id="multipartResolver"
+      class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="104857600" /> <!-- 100MB in bytes -->
+    <property name="maxInMemorySize" value="1048576" /> <!-- Optional: 1MB in memory -->
+</bean>
+
+	<!-- View Resolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	 <mvc:resources mapping= "/WEB-INF/resources/**" location="/resources/"/>
+	 <mvc:resources mapping="/uploads/**" location="/uploads/" />
+	
+<mvc:resources mapping="/Style/**" location="/Style/" />
+	
+	
+	<!-- data source -->
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
+	
+	<!-- <tx:annotation-driven /> -->
+	
+
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		name="ds">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/db_rentalservice" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+
+	</bean>
+
+	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">  
+	  	<property name="host" value="smtp.gmail.com" />  
+	    <property name="username" value="hsgroupproject4@gmail.com" />  
+	    <property name="password" value="pscqluajyrjfhszv" />  
+	    <property name="javaMailProperties">  
+	       <props>  
+	              <prop key="mail.smtp.auth">true</prop>  
+	              <prop key="mail.smtp.socketFactory.port">465</prop>  
+	              <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>  
+	              <prop key="mail.smtp.port">465</prop>  
+	        </props>  
+	    </property>  
+	</bean> -->
+	
+	<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		name="sessionFactory">
+		<!-- data source -->
+		<property name="dataSource" ref="ds"></property>
+
+		<!-- Hibernate properties -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+
+		<!-- annotated classes -->
+		<property name="annotatedClasses">
+    <list>
+        <value>com.model.BannerModel</value>
+        <value>com.model.LoginModel</value>
+        <value>com.model.ServiceModel</value>
+        <value>com.model.MakeupGalleryModel</value>
+        <value>com.model.GalleryCategory</value>
+        <value>com.model.RentalGalleryModel</value>
+        <value>com.model.RentalBookingModel</value>
+         <value>com.model.RentalInquiryModel</value>
+        <value>com.model.ServiceBookingModel</value>
+        <value>com.model.ServiceInquiryModel</value>
+        <value>com.model.ReviewModel</value>
+         
+    </list>
+</property>
+
+	</bean>
+
+
+	<!-- <bean class="org.springframework.orm.hibernate5.HibernateTemplate"
+		name="hibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> -->
+
+	<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+		name="hibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.gmail.com" />
+    <property name="port" value="587" />
+    <property name="username" value="sujitmanapure20@gmail.com" />
+    <property name="password" value="groe ambo eqih opgd" />
+    <property name="javaMailProperties">
+        <props>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.debug">true</prop>
+        </props>
+    </property>
+</bean>
+
+
+	
+</beans>
