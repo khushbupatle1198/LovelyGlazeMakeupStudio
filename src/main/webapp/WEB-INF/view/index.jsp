@@ -110,8 +110,7 @@
                     <div class="gallery-item">
                         <img src="uploads/${img.fileName}" alt="${img.imageName}">
                         <div class="item-info">
-                            <h4>${img.imageName}</h4>
-                            <p>Professional and elegant makeup style to enhance your beauty.</p>
+                            
                         </div>
                     </div>
                 </c:forEach>
@@ -220,14 +219,14 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="info-content">
                             <h4>Our Address</h4>
-                            <p>123 Rental Street, Service City, SC 12345</p>
+                            <p>Near Rajwada Palace, Gajiyapeth, Nagpur</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone-alt"></i>
                         <div class="info-content">
                             <h4>Call Us</h4>
-                            <p>+1 (123) 456-7890<br>+1 (987) 654-3210</p>
+                            <p>+91 8149449539</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -325,7 +324,7 @@
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Makeup Services</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Equipment Rental</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Costume Rental</a></li>
+                        <li><a href="adminlogin"><i class="fas fa-chevron-right"></i> Management</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Event Planning</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Photography Services</a></li>
                     </ul>

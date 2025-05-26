@@ -43,7 +43,7 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <div class="info-content">
                         <h4>Our Address</h4>
-                        <p>123 Rental Street, Service City, SC 12345</p>
+                        <p>Near Rajwada Palace, Gajiyapeth, Nagpur</p>
                     </div>
                 </div>
                 
@@ -51,7 +51,7 @@
                     <i class="fas fa-phone-alt"></i>
                     <div class="info-content">
                         <h4>Call Us</h4>
-                        <p>+1 (123) 456-7890<br>+1 (987) 654-3210</p>
+                         <p>+91 8149449539</p>
                     </div>
                 </div>
                 
