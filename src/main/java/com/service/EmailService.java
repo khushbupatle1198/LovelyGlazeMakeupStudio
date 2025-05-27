@@ -138,7 +138,7 @@ public class EmailService {
         mailMessage.setTo(toEmail);
         mailMessage.setSubject(subject);
         mailMessage.setText(message);
-        mailMessage.setFrom("sujitmanapure20@gmail.com");  // Replace with your configured email
+        mailMessage.setFrom("mahisgallerydm@gmail.com");  // Replace with your configured email
         mailSender.send(mailMessage);
     }
 

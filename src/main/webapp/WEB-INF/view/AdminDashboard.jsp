@@ -21,10 +21,10 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="sidebar-header">
-            <i class="fas fa-box-open"></i>
-            <h3>Lovely Glaze Beauty Studio</h3>
-        </div>
+        <div class="sidebar-header" >
+    <img src="uploads/logo.jpeg" alt="Logo" style="height: 80px; width: 80px; border-radius: 60%;">
+    <h3>Lovely Glaze Beauty Studio</h3>
+</div>
         <ul class="sidebar-menu">
             <li class="active" onclick="showSection('dashboard')">
                 <a href="javascript:void(0)">
@@ -89,8 +89,8 @@
         <div class="header">
             <h2 id="section-title">Dashboard</h2>
             <div class="user-info">
-                <img src="https://via.placeholder.com/40" alt="Admin">
-                <span>Admin User</span>
+                <img src="uploads/ownerimage.jpg" alt="Admin">
+                <span>mahisgallerydm@gmail.com</span>
             </div>
         </div>
 

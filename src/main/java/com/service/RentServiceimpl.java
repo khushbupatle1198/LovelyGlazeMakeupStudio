@@ -28,7 +28,7 @@ public class RentServiceimpl implements RentService {
 
 	@Autowired RentDao dao;
 	
-	@Transactional
+	
 	@Override
 	public List<LoginModel> getLogin(LoginModel lm) {
 		// TODO Auto-generated method stub

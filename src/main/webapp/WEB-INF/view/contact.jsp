@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <nav id="mainNav">
         <div class="logo">
-            
+            <img src="uploads/logo.jpeg" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
             <span>Lovely Glaze Beauty Studio</span>
         </div>
         <div class="menu-toggle">
@@ -59,7 +59,7 @@
                     <i class="fas fa-envelope"></i>
                     <div class="info-content">
                         <h4>Email Us</h4>
-                        <p>info@rentalservices.com<br>support@rentalservices.com</p>
+                        <p>mahisgallerydm@gmail.com<br>
                     </div>
                 </div>
                 
@@ -67,16 +67,16 @@
                     <i class="fas fa-clock"></i>
                     <div class="info-content">
                         <h4>Working Hours</h4>
-                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Monday - Sunday: 9:00 AM - 7:00 PM<br></p>
                     </div>
                 </div>
                 
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/share/1Z5apoSXqG/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                   
+                    <a href="https://www.instagram.com/lovely_glaze_by_shanu_rana?igsh=bzBreWczMmdxMnlr"><i class="fab fa-instagram"></i></a>
+                   
+                    <a href="https://youtube.com/@shanuranamakeover?si=d7--4OAiWbF4uzoU"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             

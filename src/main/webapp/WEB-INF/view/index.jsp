@@ -42,8 +42,8 @@
     <!-- Preloader with Logo -->
     <div class="preloader" id="preloader">
         <div class="preloader-logo logo-animation">
+            <img src="uploads/logo.jpeg" alt="Logo" style="height: 300px; width: 300px; border-radius: 60%;">
            
-            <span>Lovely Glaze Beauty Studio</span>
         </div>
     </div>
     
@@ -52,7 +52,7 @@
         <!-- Enhanced Navbar -->
         <nav id="mainNav">
             <div class="logo">
-                
+                 <img src="uploads/logo.jpeg" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
                 <span>Lovely Glaze Beauty Studio</span>
             </div>
             <div class="menu-toggle">
@@ -94,7 +94,7 @@
     </div>
     
     <div class="about-image">
-        <img src="uploads/Bride7.jpg" alt="Our Team">
+        <img src="uploads/ownerimage.jpg" alt="Our Team">
     </div>
 </section>
 
@@ -229,26 +229,27 @@
                             <p>+91 8149449539</p>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div class="info-content">
-                            <h4>Email Us</h4>
-                            <p>info@rentalservices.com<br>support@rentalservices.com</p>
-                        </div>
+                     <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-content">
+                        <h4>Email Us</h4>
+                        <p>mahisgallerydm@gmail.com<br>
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i>
-                        <div class="info-content">
-                            <h4>Working Hours</h4>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
-                        </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-content">
+                        <h4>Working Hours</h4>
+                        <p>Monday - Sunday: 9:00 AM - 7:00 PM<br></p>
                     </div>
+                </div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/share/1Z5apoSXqG/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                       
+                        <a href="https://www.instagram.com/lovely_glaze_by_shanu_rana?igsh=bzBreWczMmdxMnlr"><i class="fab fa-instagram"></i></a>
+                        
+                        <a href="https://youtube.com/@shanuranamakeover?si=d7--4OAiWbF4uzoU"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="review-form">
@@ -292,10 +293,10 @@
         
         <!-- Map Section -->
         <section class="map-section">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215373510416!2d-73.9878449245389!3d40.74844097138986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjQiTiA3M8KwNTknMTkuOSJX!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </section>
+    <div class="map-container">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d119074.7249694892!2d79.01681973803547!3d21.149009161326347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bd4c185d4ddf59b%3A0x45a163e2ba6299e3!2sLovely%20Glaze%20Studio%2C%20Ganjipeth%20Ganesh%20Chowk%2C%20behind%20Rajwada%20Palace%2C%20Ganjipeth%2C%20Gandhibagh%2C%20Nagpur%2C%20Maharashtra%20440018!3m2!1d21.1490291!2d79.09922139999999!5e0!3m2!1sen!2sin!4v1748339003554!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   </div>
+</section>
+
         
         <!-- Footer -->
         <footer>

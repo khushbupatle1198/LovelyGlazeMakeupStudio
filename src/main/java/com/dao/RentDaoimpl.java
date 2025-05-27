@@ -30,12 +30,15 @@ public class RentDaoimpl implements RentDao {
 	
 	@Override
 	public List<LoginModel> getLogin(LoginModel lm) {
-		// TODO Auto-generated method stub
-		List<LoginModel> list= sessionfactory.getCurrentSession().createQuery("From LoginModel A where A.username='"+lm.getUsername()+"' and A.password='"+lm.getPassword()+"'").list();
-		List<LoginModel> list1= list.size()>0?list:null;
-		
-		return list1;
+	List<LoginModel> list=	sessionfactory.openSession().createQuery(" from LoginModel E where E.username='"+lm.getUsername()+"' and E.password='"+lm.getPassword()+"'").list();
+	List<LoginModel> list1= list.size()>0?list:null;
+
+	    System.out.println("Result size: " + list1.size());
+	    return list1;
 	}
+
+
+
 
 	@Override
 	public List<BannerModel> getAllBanners() {

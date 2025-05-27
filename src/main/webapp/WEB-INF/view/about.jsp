@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav id="mainNav">
         <div class="logo">
-           
+           <img src="uploads/logo.jpeg" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
             <span>Lovely Glaze Beauty Studio</span>
         </div>
         <div class="menu-toggle">
@@ -50,7 +50,7 @@
     </div>
     
     <div class="about-image">
-        <img src="uploads/Bride1.jpg" alt="Our Team">
+        <img src="uploads/ownerimage.jpg" alt="Our Team">
     </div>
 </section>
     

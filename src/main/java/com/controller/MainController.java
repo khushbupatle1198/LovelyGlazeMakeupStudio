@@ -160,10 +160,14 @@ public class MainController {
     	
     	List<LoginModel> list = rentservice.getLogin(lm);
     	
-    	if(list!=null) {
+    	
+    	
+    	if(list != null && !list.isEmpty()) {
     	return "redirect:/view";
     	}else {
-			return "AdminLogin";
+    		System.out.println("Wrong Credential");
+			return "redirect:/adminlogin";
+			
 		}
     }
     
