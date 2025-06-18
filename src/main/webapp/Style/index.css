@@ -289,13 +289,64 @@
         backdrop-filter: blur(10px);
     }
         
-    .logo {
-        font-size: 1.8rem;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        transition: all 0.3s ease;
-    }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.logo-img {
+    flex-shrink: 0;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Lovely Glaze title */
+.logo-text .span1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.3rem;
+    background: linear-gradient(90deg, #f06292, #fbc02d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    margin-bottom: none;
+}
+
+/* Mahi’s Rental Studio title */
+.logo-text span {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #f06292, #fbc02d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+
+/* Subtitle - for Mahi's Rental Studio */
+.logo-text h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #b78d65;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+
+
+
         
     nav.scrolled .logo {
         font-size: 1.5rem;
@@ -386,21 +437,7 @@
     .nav-links li.active::after {
         width: 100%;
     }
-    
-    /* Apply font to logo */
-.logo span {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.5rem;
-    background: linear-gradient(90deg, #f06292, #fbc02d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1.5px;
-    font-weight: bold;
-    text-shadow: none; /* remove shadows to reduce fuzziness */
-}
-
-
- 
+     
         
     /* Add margin to body to account for fixed navbar */
     

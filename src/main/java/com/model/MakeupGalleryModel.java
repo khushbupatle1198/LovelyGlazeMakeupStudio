@@ -52,6 +52,6 @@ public class MakeupGalleryModel {
 	public void setMultipartFile(CommonsMultipartFile multipartFile) {
 		this.multipartFile = multipartFile;
 	}
-    
-    
+
+
 }

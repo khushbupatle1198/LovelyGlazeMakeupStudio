@@ -3,7 +3,6 @@ package com.dao;
 import java.util.Date;
 import java.util.List;
 
-
 import javax.persistence.TypedQuery;
 
 import org.hibernate.SessionFactory;
@@ -27,7 +26,7 @@ public class RentDaoimpl implements RentDao {
 
 	@Autowired
 	SessionFactory sessionfactory;
-	
+
 	@Override
 	public List<LoginModel> getLogin(LoginModel lm) {
 	List<LoginModel> list=	sessionfactory.openSession().createQuery(" from LoginModel E where E.username='"+lm.getUsername()+"' and E.password='"+lm.getPassword()+"'").list();
@@ -49,10 +48,10 @@ public class RentDaoimpl implements RentDao {
 	@Override
 	public void saveBanner(BannerModel bannerModel) {
 		// TODO Auto-generated method stub
-		
+
 		sessionfactory.getCurrentSession().save(bannerModel);
 	}
-	
+
 	@Override
 	public int deleteBanner(int id) {
 	    BannerModel banner = sessionfactory.getCurrentSession().get(BannerModel.class, id);
@@ -67,9 +66,9 @@ public class RentDaoimpl implements RentDao {
 	@Override
 	public void addService(ServiceModel service) {
 		// TODO Auto-generated method stub
-		
+
 		sessionfactory.getCurrentSession().save(service);
-		
+
 	}
 
 	@Override
@@ -113,7 +112,7 @@ public class RentDaoimpl implements RentDao {
 	@Override
 	public GalleryCategory getById(int categoryId) {
 		// TODO Auto-generated method stub
-		
+
 		return sessionfactory.getCurrentSession().get(GalleryCategory.class, categoryId);
 	}
 
@@ -140,7 +139,7 @@ public class RentDaoimpl implements RentDao {
 		// TODO Auto-generated method stub
 		RentalGalleryModel rm= sessionfactory.getCurrentSession().get(RentalGalleryModel.class, id);
 		sessionfactory.getCurrentSession().delete(rm);
-		
+
 	}
 
 	@Override
@@ -182,7 +181,7 @@ public class RentDaoimpl implements RentDao {
 	@Override
 	public int saveInquiry(ServiceInquiryModel inquiry) {
 		// TODO Auto-generated method stub
-		
+
 		return (int)	sessionfactory.getCurrentSession().save(inquiry);
 	}
 
@@ -228,7 +227,7 @@ public class RentDaoimpl implements RentDao {
 		return sessionfactory.getCurrentSession().createQuery("From RentalInquiryModel", RentalInquiryModel.class).list();
 	}
 
-	 
+
 
 	    @Override
 	    public int countByStatus(String status) {
@@ -318,13 +317,13 @@ public class RentDaoimpl implements RentDao {
 			ReviewModel rm= sessionfactory.getCurrentSession().get(ReviewModel.class, id);
 			 if (rm != null) {
 			        sessionfactory.getCurrentSession().delete(rm);
-			        return 1; 
+			        return 1;
 			    } else {
-			        return 0; 
+			        return 0;
 			    }
 		}
-	
 
-	
+
+
 
 }

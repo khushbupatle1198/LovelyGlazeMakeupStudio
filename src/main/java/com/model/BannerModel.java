@@ -20,8 +20,8 @@ public class BannerModel {
 	    private String name;
 	    private String fileupload;
 	    @Transient
-	    private CommonsMultipartFile multipartFile; 
-	    
+	    private CommonsMultipartFile multipartFile;
+
 		public CommonsMultipartFile getMultipartFile() {
 			return multipartFile;
 		}
@@ -52,10 +52,10 @@ public class BannerModel {
 		public void setFileupload(String fileupload) {
 			this.fileupload = fileupload;
 		}
-		
-		
-		
-	
-    
-    
+
+
+
+
+
+
 }

@@ -46,7 +46,7 @@ public interface RentDao {
 	public void updateServiceBooking(ServiceBookingModel order);
 	public int saveRentalInquiry(RentalInquiryModel inquiry);
 	public List<RentalInquiryModel> getallRentalInquery();
-	
+
 
     int countByStatus(String status);
     List<RentalBookingModel> findRecentBookings();

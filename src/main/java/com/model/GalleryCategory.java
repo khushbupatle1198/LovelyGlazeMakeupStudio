@@ -33,6 +33,6 @@ public class GalleryCategory {
 	public void setName(String name) {
 		this.name = name;
 	}
-    
-    
+
+
 }

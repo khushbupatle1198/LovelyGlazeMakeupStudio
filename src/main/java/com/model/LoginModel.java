@@ -12,7 +12,7 @@ public class LoginModel {
 	@Id
 	@Column(name = "username")
 	private String username;
-	
+
 	@Column(name = "password")
 	private String password;
 	public String getUsername() {
@@ -27,7 +27,7 @@ public class LoginModel {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
+
+
+
 }

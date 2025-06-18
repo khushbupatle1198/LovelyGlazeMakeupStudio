@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovely Glaze Makeup Studio - Contact</title>
+    <title>Mahis Gallary - Contact</title>
    
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,20 +17,24 @@
 <body>
     <!-- Navbar -->
     <nav id="mainNav">
-        <div class="logo">
-            <img src="uploads/logo.jpeg" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
-            <span>Lovely Glaze Makeup Studio</span>
-        </div>
+       <div class="logo">
+    <div class="logo-img">
+        <img src="uploads/mg.png" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
+    </div>
+    <div class="logo-text">
+        <span>Mahi`s Rental Studio</span>
+        <h6>Jewellery & Outfit Collection</h6>
+    </div>
+</div>
         <div class="menu-toggle">
             <i class="fas fa-bars"></i>
         </div>
         <ul class="nav-links">
-            <li><a href="home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="about"><i class="fas fa-info-circle"></i> About</a></li>
-             <li><a href="rentalhome" target="_blank"><i class="fas fa-info-circle"></i> Mahi`s Rental Studio</a></li>
-            <li><a href="gallery"><i class="fas fa-images"></i> Gallery</a></li>
-            <li><a href="services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-            <li class="active"><a href="contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            <li><a href="rentalhome"><i class="fas fa-home"></i> Home</a></li>
+            
+            <li><a href="rentalgallery"><i class="fas fa-images"></i> Gallery</a></li>
+            
+            <li class="active"><a href="rentalcontact"><i class="fas fa-phone-alt"></i> Contact</a></li>
         </ul>
     </nav>
 
@@ -52,7 +56,7 @@
                     <i class="fas fa-phone-alt"></i>
                     <div class="info-content">
                         <h4>Call Us</h4>
-                         <p>+91 8149449539</p>
+                         <p>+91 8999289506</p>
                     </div>
                 </div>
                 
@@ -73,9 +77,9 @@
                 </div>
                 
                 <div class="social-links">
-                    <a href="https://www.facebook.com/share/1Z5apoSXqG/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/share/1AfdriosfJ/"><i class="fab fa-facebook-f"></i></a>
                    
-                    <a href="https://www.instagram.com/lovely_glaze_by_shanu_rana?igsh=bzBreWczMmdxMnlr"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/mahisgallery888/"><i class="fab fa-instagram"></i></a>
                    
                     <a href="https://youtube.com/@shanuranamakeover?si=d7--4OAiWbF4uzoU"><i class="fab fa-youtube"></i></a>
                 </div>
@@ -127,21 +131,18 @@
                 <h4>About Us</h4>
                 <p>We are a premier rental service provider offering high-quality products and services for all your needs. Our commitment to excellence ensures customer satisfaction.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1AfdriosfJ/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@shanuranamakeover?si=d7--4OAiWbF4uzoU"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/mahisgallery888/"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="rentalhome" target="_blank"><i class="fas fa-chevron-right"></i> Mahi`s Rental Studio</a></li>
-                    <li><a href="services"><i class="fas fa-chevron-right"></i> Services</a></li>
-                    <li><a href="gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-                    <li><a href="contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                     <li><a href="rentalhome"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="rentalgallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="rentalcontact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
                 </ul>
             </div>
             

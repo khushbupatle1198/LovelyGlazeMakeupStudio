@@ -47,7 +47,7 @@ public interface RentService {
 	public void updateServiceBooking(ServiceBookingModel order);
 	public int saveRentalInquiry(RentalInquiryModel inquiry);
 	public List<RentalInquiryModel> getallRentalInquery();
-	
+
 
 	public int getPendingCount();
 	public int getConfirmedCount();

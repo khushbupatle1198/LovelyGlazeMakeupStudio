@@ -24,9 +24,9 @@ public class ServiceModel {
 
 	    @Column(length = 1000)
 	    private String description;
-	    
+
 	    @Transient
-	    private List<String> descList; 
+	    private List<String> descList;
 
 		public int getId() {
 			return id;
@@ -67,6 +67,6 @@ public class ServiceModel {
 		public void setDescList(List<String> descList) {
 			this.descList = descList;
 		}
-		
-	
+
+
 }

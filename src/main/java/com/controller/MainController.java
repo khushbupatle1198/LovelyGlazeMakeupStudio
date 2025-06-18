@@ -19,8 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -51,76 +49,76 @@ import com.service.RentService;
 public class MainController {
 
 	@Autowired  RentService rentservice;
-	
+
 	@Autowired EmailService emailservice;
-	
+
 	@RequestMapping("/")
 	public String root() {
-	    return "redirect:/indexview"; // default page when accessing "/"
+	    return "redirect:/indexview";
 	}
-	
+
 	@RequestMapping("/home")
     public String home() {
-        return "redirect:/indexview"; // maps to home.jsp
+        return "redirect:/indexview";
     }
-    
+
     @RequestMapping("/about")
     public String about() {
-        return "about"; // maps to about.jsp
+        return "about";
     }
-    
+
     @RequestMapping("/gallery")
     public String gallery() {
         return "redirect:/fullgallery"; // maps to gallery.jsp
     }
-    
+
     @RequestMapping("/contact")
     public String contact() {
         return "contact"; // maps to contact.jsp
     }
-    
+
     @RequestMapping("/services")
     public String services() {
         return "redirect:/getservices"; // maps to services.jsp
     }
-    
+
     @RequestMapping("/getservices")
     public String showServices(Model model) {
         List<ServiceModel> list = rentservice.getAllServices();
-        
+
         for (ServiceModel s : list) {
             if (s.getDescription() != null) {
                 String[] descLines = s.getDescription().split("\\n");
-                s.setDescList(Arrays.asList(descLines)); // Create a new field for this
+                s.setDescList(Arrays.asList(descLines));
             }
         }
-        
+
         model.addAttribute("list", list);
         return "services"; // resolves to services.jsp
     }
-    
+
     @RequestMapping("/indexview")
     public String showHomePage(Model model) {
         List<BannerModel> banners = rentservice.getAllBanners();
-        
+
         List<MakeupGalleryModel> makeupGallery = rentservice.getAllMakeupGallery();
 
         // Limit to 4 images
         if (makeupGallery.size() > 4) {
             makeupGallery = makeupGallery.subList(0, 4);
         }
+
         
-        List<RentalGalleryModel> galleries = rentservice.getAllGalleries();
         List<ReviewModel> reviewList = rentservice.getAllReviews();
-        
+
         model.addAttribute("reviewList", reviewList);
-        model.addAttribute("galleryList", galleries);
-        
+       
+
         model.addAttribute("banners", banners);
         model.addAttribute("makeupGallery", makeupGallery);
-        return "index"; // Your JSP page name
+        return "index";
     }
-    
+
     @RequestMapping("/fullgallery")
     public String showFullGallery(Model model) {
         List<MakeupGalleryModel> gallery = rentservice.getAllMakeupGallery();
@@ -132,45 +130,80 @@ public class MainController {
         model.addAttribute("makeupGallery", gallery);
         return "gallery"; // Create this JSP for full gallery
     }
-    
+
     @RequestMapping(value = "submitReview", method = RequestMethod.POST)
     public String submitReview(@ModelAttribute("rm") ReviewModel rm, HttpSession session) {
-    	
-    	
+
+
     	rentservice.saveReview(rm);
-    	
+
     	session.setAttribute("sesreview", "success");
-    	
+
     	return "redirect:/indexview";
     }
 
+    //For the Rental Website
+    
+    @RequestMapping("/rentalhome")
+    public String showindexPage(Model model) {
+        List<BannerModel> banners = rentservice.getAllBanners();
+
+        List<RentalGalleryModel> galleries = rentservice.getAllGalleries();
+        List<ReviewModel> reviewList = rentservice.getAllReviews();
+
+        model.addAttribute("reviewList", reviewList);
+        model.addAttribute("galleryList", galleries);
+
+        model.addAttribute("banners", banners);
+        
+        return "RentalIndex";
+    }
+
+    
+    @RequestMapping("/rentalgallery")
+    public String showrentalGallery(Model model) {
+       
+        List<GalleryCategory> categories = rentservice.getAllCategories();
+        List<RentalGalleryModel> galleries = rentservice.getAllGalleries();
+
+        model.addAttribute("categoryList", categories);
+        model.addAttribute("galleryList", galleries);
+        
+        return "RentalGallery"; // Create this JSP for full gallery
+    }
+    
+    @RequestMapping("/rentalcontact")
+    public String rentalcontact() {
+        return "RentalContact"; // maps to contact.jsp
+    }
+    
     
     
     //Admin Codes
-    
+
     @RequestMapping("/adminlogin")
     public String showLoginForm() {
         return "AdminLogin";
     }
-    
+
     @RequestMapping(value = "login", method =RequestMethod.POST )
     public String doLogin(@ModelAttribute("lm") LoginModel lm) {
-    	
-    	
-    	
+
+
+
     	List<LoginModel> list = rentservice.getLogin(lm);
-    	
-    	
-    	
+
+
+
     	if(list != null && !list.isEmpty()) {
     	return "redirect:/view";
     	}else {
     		System.out.println("Wrong Credential");
 			return "redirect:/adminlogin";
-			
+
 		}
     }
-    
+
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false); // Get session if exists
@@ -182,13 +215,13 @@ public class MainController {
         response.setDateHeader("Expires", 0); // Proxies
         return "redirect:/adminlogin";
     }
-    
-   
+
+
     @RequestMapping("/view")
     public String showAlldata(Model model) {
         List<BannerModel> banners = rentservice.getAllBanners();
         List<ServiceModel> sm= rentservice.getAllServices();
-        
+
         for (ServiceModel s : sm) {
             if (s.getDescription() != null) {
                 String[] descLines = s.getDescription().split("\\n");
@@ -203,7 +236,7 @@ public class MainController {
         List<RentalInquiryModel> inquery= rentservice.getallRentalInquery();
         List<ServiceInquiryModel> sinquery= rentservice.getAllInquiries();
         List<ReviewModel> reviewList = rentservice.getAllReviews();
-        
+
         model.addAttribute("reviewList", reviewList);
         model.addAttribute("serviceInquiries", sinquery);
         model.addAttribute("rentalInquiries", inquery);
@@ -214,34 +247,34 @@ public class MainController {
         model.addAttribute("galleryList", galleryList);
         model.addAttribute("categoryList", categories);
         model.addAttribute("galleries", galleries);
-        
-        
-       
-     
+
+
+
+
         model.addAttribute("pendingCount", rentservice.getPendingCount());
         model.addAttribute("confirmedCount", rentservice.getConfirmedCount());
         model.addAttribute("completedCount", rentservice.getCompletedCount());
         model.addAttribute("cancelledCount", rentservice.getCancelledCount());
         model.addAttribute("recentActivities", rentservice.getRecentActivities(10));
-        
+
         return "AdminDashboard"; // JSP page
     }
-    
+
     @RequestMapping(value = "/uploadBanner", method = RequestMethod.POST)
-    public String uploadBanner(@ModelAttribute BannerModel bannerModel) {
+    public String uploadBanner(@ModelAttribute BannerModel bannerModel, HttpServletRequest request) {
 
     	CommonsMultipartFile file = bannerModel.getMultipartFile();
 
-    	
-    	
+
+
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
-            String uploadDir = "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads";
+            String uploadDir = request.getServletContext().getRealPath("/uploads");
 
             try {
                 file.transferTo(new File(uploadDir + "/" + fileName));
                 bannerModel.setFileupload(fileName); // Store file name in DB
-                
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -253,28 +286,28 @@ public class MainController {
 
     @RequestMapping("/deletebanner")
     public String deleteBanner(@RequestParam("id") int id,
-                               @RequestParam("file") String fileName) {
-        
+                               @RequestParam("file") String fileName, HttpServletRequest request) {
+
         // 1. Delete image file from server
-        String uploadDir = "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads";
+    	String uploadDir = request.getServletContext().getRealPath("/uploads");
         File file = new File(uploadDir + File.separator + fileName);
 
         if (file.exists()) {
             file.delete();
         }
 
-     
+
            int status= rentservice.deleteBanner(id);
-        
+
 
         return "redirect:/view";
     }
 
-    
-    
+
+
     @RequestMapping(value = "/addService", method = RequestMethod.POST)
     public String saveService(@ModelAttribute("serviceModel") ServiceModel serviceModel) {
-    	
+
         rentservice.addService(serviceModel);
         return "redirect:/view";
     }
@@ -284,15 +317,15 @@ public class MainController {
         rentservice.deleteService(id);
         return "redirect:/view";
     }
-    
+
     @RequestMapping(value = "/uploadMakeupImage", method = RequestMethod.POST)
-    public String uploadMakeupImage(@ModelAttribute MakeupGalleryModel makeupModel) {
+    public String uploadMakeupImage(@ModelAttribute MakeupGalleryModel makeupModel, HttpServletRequest request) {
 
         CommonsMultipartFile file = makeupModel.getMultipartFile();
 
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
-            String uploadDir = "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads";
+            String uploadDir = request.getServletContext().getRealPath("/uploads");
 
             try {
                 file.transferTo(new File(uploadDir + "/" + fileName));
@@ -307,21 +340,21 @@ public class MainController {
     }
 
     @RequestMapping("/deleteMakeupImage")
-    public String deleteMakeupImage(@RequestParam("id") int id, @RequestParam("file") String fileName) {
-    	
-    	 String uploadDir = "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads";
+    public String deleteMakeupImage(@RequestParam("id") int id, @RequestParam("file") String fileName, HttpServletRequest request) {
+
+    	String uploadDir = request.getServletContext().getRealPath("/uploads");
          File file = new File(uploadDir + File.separator + fileName);
 
          if (file.exists()) {
              file.delete();
          }
-    	
+
         rentservice.deleteMakeupGallery(id);
         return "redirect:/view";
     }
 
     @RequestMapping(value = "/uploadRentalGallery", method = RequestMethod.POST)
-    public String uploadRentalGallery(@ModelAttribute("rentalModel") RentalGalleryModel rentalModel) {
+    public String uploadRentalGallery(@ModelAttribute("rentalModel") RentalGalleryModel rentalModel, HttpServletRequest request) {
 
         CommonsMultipartFile file = rentalModel.getMultipartFile();
 
@@ -340,7 +373,7 @@ public class MainController {
 
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
-            String uploadDir = "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads/rental";
+            String uploadDir = request.getServletContext().getRealPath("/uploads/rental");
 
             try {
                 file.transferTo(new File(uploadDir + "/" + fileName));
@@ -359,13 +392,13 @@ public class MainController {
         return "redirect:/view";
     }
 
-    
+
     @RequestMapping("/deleteRentalGallery/{id}&{filename}")
     public String deleteRentalGallery(@PathVariable("id") int id,
-                                      @PathVariable("filename") String filename) {
+                                      @PathVariable("filename") String filename, HttpServletRequest request) {
 
         // Define the folder path
-        String uploadDir = "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads/rental";
+    	String uploadDir = request.getServletContext().getRealPath("/uploads/rental");
 
         // Delete the physical file
         File file = new File(uploadDir + "/" + filename);
@@ -378,16 +411,16 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
+
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // matches <input type="date">
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
-    
+
     @RequestMapping("/bookProduct")
-    public String bookProduct(@ModelAttribute("booking") RentalBookingModel booking, Model model, HttpSession session) {
+    public String bookProduct(@ModelAttribute("booking") RentalBookingModel booking, Model model, HttpSession session,HttpServletRequest request) {
 
          RentalGalleryModel productId = booking.getProductid();
         java.util.Date bookingDate = booking.getBookingDate();
@@ -396,12 +429,12 @@ public class MainController {
         	session.setAttribute("msg", "Exist");
             return "redirect:/fullgallery";
         }
-        
+
         CommonsMultipartFile file= booking.getMultipartFile();
-        
+
         // Save uploaded file
         String fileName = file.getOriginalFilename();
-        String uploadDir =  "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads/idproofs/";
+        String uploadDir = request.getServletContext().getRealPath("/uploads/idproofs/");
         File uploadPath = new File(uploadDir);
         if (!uploadPath.exists()) {
             uploadPath.mkdirs();
@@ -430,10 +463,11 @@ public class MainController {
         	 return "redirect:/fullgallery";
 		}
     }
-    
+
     @RequestMapping("/downloadIdProof/{filename:.+}")
-    public void downloadIdProof(@PathVariable("filename") String filename, HttpServletResponse response) {
-        final String uploadDir = "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads/idproofs/";
+    public void downloadIdProof(@PathVariable("filename") String filename, HttpServletResponse response, HttpServletRequest request) {
+        final String uploadDir = request.getServletContext().getRealPath("/uploads/idproofs/");
+        
 
         try {
             Path filePath = Paths.get(uploadDir + filename);
@@ -478,7 +512,7 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
+
     @RequestMapping("/completeOrder/{id}")
     public String completeOrder(@PathVariable("id") int id, HttpSession session) {
         RentalBookingModel order = rentservice.getBookingById(id);
@@ -494,7 +528,7 @@ public class MainController {
         return "redirect:/view";
     }
 
-    
+
     @RequestMapping("/cancelOrder/{id}")
     public String cancelOrder(@PathVariable("id") int id, HttpSession session) {
         RentalBookingModel order = rentservice.getBookingById(id);
@@ -510,7 +544,7 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
+
     @RequestMapping("/confirmService/{id}")
     public String confirmService(@PathVariable("id") int id, HttpSession session) {
         ServiceBookingModel order = rentservice.getServiceBookingById(id);
@@ -526,7 +560,7 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
+
     @RequestMapping("/completeService/{id}")
     public String completeService(@PathVariable("id") int id, HttpSession session) {
         ServiceBookingModel order = rentservice.getServiceBookingById(id);
@@ -542,7 +576,7 @@ public class MainController {
         return "redirect:/view";
     }
 
-    
+
     @RequestMapping("/cancelService/{id}")
     public String cancelService(@PathVariable("id") int id, HttpSession session) {
         ServiceBookingModel order = rentservice.getServiceBookingById(id);
@@ -560,12 +594,12 @@ public class MainController {
     }
 
     @RequestMapping(value = "submitServiceBooking", method =RequestMethod.POST )
-    public String saveServiceBooking(@ModelAttribute("sbm") ServiceBookingModel sbm, HttpSession session) {
-    	
+    public String saveServiceBooking(@ModelAttribute("sbm") ServiceBookingModel sbm, HttpSession session, HttpServletRequest request) {
+
     	CommonsMultipartFile file= sbm.getMultipartFile();
     	// Save uploaded file
         String fileName = file.getOriginalFilename();
-        String uploadDir =  "C:/Users/JOHN/eclipse-workspace/LovelyGlazeBeautyStudio/src/main/webapp/uploads/idproofs/";
+        String uploadDir = request.getServletContext().getRealPath("/uploads/idproofs/");        
         File uploadPath = new File(uploadDir);
         if (!uploadPath.exists()) {
             uploadPath.mkdirs();
@@ -578,12 +612,12 @@ public class MainController {
             session.setAttribute("msg1", "File upload failed.");
             return "redirect:/getservices";
         }
-        
+
         sbm.setIdProofFile(fileName);
         int status= rentservice.saveServiceBooking(sbm);
-    	
-        if(status>0) { 
-        	
+
+        if(status>0) {
+
         	emailservice.sendServiceBookingEmail(sbm.getEmail(), sbm.getFullname(), sbm.getBookingDate(), sbm.getServiceId().getTitle());
 
         session.setAttribute("msg3", "success");
@@ -594,14 +628,14 @@ public class MainController {
         	 return "redirect:/getservices";
 		}
     }
-    
+
     @RequestMapping(value = "submitServiceInquiry", method =RequestMethod.POST )
     public String saveInqueryBooking(@ModelAttribute("sim") ServiceInquiryModel sim, HttpSession session) {
-    	
+
         int status= rentservice.saveInquiry(sim);
-    	
-        if(status>0) { 
-        	
+
+        if(status>0) {
+
         	emailservice.sendInqueryEmail(sim.getEmail(), sim.getFullname());
 
         session.setAttribute("msg3", "success");
@@ -612,8 +646,8 @@ public class MainController {
         	 return "redirect:/getservices";
 		}
     }
-    
-    
+
+
     @RequestMapping("/confirmServiceInquiry/{id}")
     public String confirmServiceInquery(@PathVariable("id") int id, HttpSession session) {
         ServiceInquiryModel order = rentservice.getServiceInqueryById(id);
@@ -629,8 +663,8 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
-    
+
+
     @RequestMapping("/cancelServiceInquery/{id}")
     public String cancelServiceInquery(@PathVariable("id") int id, HttpSession session) {
     	 ServiceInquiryModel order = rentservice.getServiceInqueryById(id);
@@ -646,14 +680,14 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
+
     @RequestMapping(value = "submitInquiry", method =RequestMethod.POST )
     public String saveRentalInquery(@ModelAttribute("rim") RentalInquiryModel rim, HttpSession session) {
-    	
+
         int status= rentservice.saveRentalInquiry(rim);
-    	
-        if(status>0) { 
-        	
+
+        if(status>0) {
+
         	emailservice.sendRentalInqueryEmail(rim.getEmail(), rim.getFullName());
 
         session.setAttribute("msg3", "success");
@@ -664,7 +698,7 @@ public class MainController {
         	 return "redirect:/fullgallery";
 		}
     }
-    
+
     @RequestMapping("/confirmRentalInquiry/{id}")
     public String confirmRentalInquery(@PathVariable("id") int id, HttpSession session) {
         RentalInquiryModel order = rentservice.getRenralInqueryById(id);
@@ -680,8 +714,8 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
-    
+
+
     @RequestMapping("/cancelRentalInquiry/{id}")
     public String cancelRentalInquery(@PathVariable("id") int id, HttpSession session) {
     	 RentalInquiryModel order = rentservice.getRenralInqueryById(id);
@@ -697,12 +731,12 @@ public class MainController {
 
         return "redirect:/view";
     }
-    
+
    @RequestMapping("reviewdelete/{id}")
    public String deleteReview(@PathVariable("id") int id) {
-	   
+
 	 int rm=  rentservice.deleteReview(id);
-	   
+
 	   return "redirect:/view";
    }
 }

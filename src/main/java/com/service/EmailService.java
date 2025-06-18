@@ -84,24 +84,24 @@ public class EmailService {
                        + "Lovely Glaze Beauty Studio\n"
                      ;
 
-       
+
         sendEmail(email, subject, message);
     }
 
 
     public void sendInqueryEmail(String email, String fullname) {
 		// TODO Auto-generated method stub
-		
+
     	 String subject = "Rental Inquiry Confirmation";
     	String messageText = "Dear " + fullname + ",\n\n"
                 + "Thank you for your inquiry. We have received your request and our team will get back to you shortly.\n\n"
                 + "Best Regards,\n"
                 + "Rental Services Team";
-    	
+
     	sendEmail(email, subject, messageText);
 	}
-    
-    
+
+
     public void sendServiceConfirmationEmail(String email, String fullname, Date bookingDate) {
 		// TODO Auto-generated method stub
     	String subject = "Service Booking Confirmation – Lovely Glaze Beauty Studio";
@@ -116,7 +116,7 @@ public class EmailService {
             + "Lovely Glaze Beauty Studio";
         sendEmail(email, subject, messageText);
 	}
-    
+
     public void sendServiceCancellationEmail(String email, String fullname, Date bookingDate) {
 		// TODO Auto-generated method stub
     	 String subject = "Service Booking Cancelled";
@@ -131,7 +131,7 @@ public class EmailService {
     	        + "Lovely Glaze Beauty Studio";
     	    sendEmail(email, subject, messageText);
 	}
-    
+
     // Reusable method to send emails
     private void sendEmail(String toEmail, String subject, String message) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
@@ -151,7 +151,7 @@ public class EmailService {
 	            + "If you have any urgent questions, feel free to reply to this email.\n\n"
 	            + "Best regards,\n"
 	            + "Lovely Glaze Beauty Studio";
-	    
+
 	    sendEmail(email, Subject, message);
 	}
 
@@ -205,5 +205,5 @@ public class EmailService {
 
 
 
-	
+
 }

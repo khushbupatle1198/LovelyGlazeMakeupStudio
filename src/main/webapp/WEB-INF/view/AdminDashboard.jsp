@@ -790,7 +790,7 @@
 
 <!-- Consolidated JavaScript -->
     <script>
-        // Global variables
+      
         let activeTab = 'rental';
         let activeInquiryTab = 'rental';
         let currentSection = 'dashboard';

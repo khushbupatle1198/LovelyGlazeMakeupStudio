@@ -21,45 +21,45 @@ public class RentalBookingModel {
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int id;
-	    
+
 	    @ManyToOne
 	    @JoinColumn(name = "product_id", nullable = false)
 	    private RentalGalleryModel productid;
-	    
+
 	    @Column(nullable = false)
 	    private String fullName;
-	    
+
 	    @Column(nullable = false)
 	    private String email;
-	    
+
 	    @Column(nullable = false)
 	    private String mobile;
-	    
+
 	    @Column(nullable = false)
 	    private String address;
-	    
+
 	    @Temporal(TemporalType.DATE)
 	    @Column(nullable = false)
 	    private Date bookingDate;
-	    
+
 	    @Column(nullable = false)
 	    private String idProofPath;
-	    
+
 	    @Column(nullable = false)
 	    private String status = "PENDING"; // PENDING, CONFIRMED, CANCELLED
-	    
+
 	    @Transient
 	    private CommonsMultipartFile multipartFile;
-	    
+
 	    @Temporal(TemporalType.TIMESTAMP)
 	    @Column(nullable = false, updatable = false)
 	    private Date createdAt = new Date();
-	    
-	   
-	    
-	    
 
-		
+
+
+
+
+
 
 		public int getId() {
 			return id;
@@ -69,7 +69,7 @@ public class RentalBookingModel {
 			this.id = id;
 		}
 
-		
+
 
 		public RentalGalleryModel getProductid() {
 			return productid;
@@ -150,6 +150,6 @@ public class RentalBookingModel {
 		public void setMultipartFile(CommonsMultipartFile multipartFile) {
 			this.multipartFile = multipartFile;
 		}
-	    
-	    
+
+
 }

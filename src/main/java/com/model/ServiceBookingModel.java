@@ -14,7 +14,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
-import org.hibernate.tool.schema.spi.CommandAcceptanceException;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 
@@ -31,7 +30,7 @@ public class ServiceBookingModel {
     private String mobile;
     private String address;
     @Column(nullable = false)
-    private String status = "PENDING"; 
+    private String status = "PENDING";
     @Temporal(TemporalType.DATE)
     private Date bookingDate;
 
@@ -100,7 +99,7 @@ public class ServiceBookingModel {
 		this.idProofFile = idProofFile;
 	}
 
-	
+
 
 	public ServiceModel getServiceId() {
 		return serviceId;
@@ -126,7 +125,7 @@ public class ServiceBookingModel {
 		this.status = status;
 	}
 
-	
-    
-    
+
+
+
 }

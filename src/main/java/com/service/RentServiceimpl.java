@@ -27,8 +27,8 @@ import com.model.ServiceModel;
 public class RentServiceimpl implements RentService {
 
 	@Autowired RentDao dao;
-	
-	
+
+
 	@Override
 	public List<LoginModel> getLogin(LoginModel lm) {
 		// TODO Auto-generated method stub
@@ -48,7 +48,7 @@ public class RentServiceimpl implements RentService {
 		// TODO Auto-generated method stub
 		dao.saveBanner(bannerModel);
 	}
-	
+
 	@Transactional
 	@Override
 	public int deleteBanner(int id) {
@@ -152,9 +152,9 @@ public class RentServiceimpl implements RentService {
 	public int saveRentalBooking(RentalBookingModel booking) {
 		// TODO Auto-generated method stub
 		return dao.saveRentalBooking(booking);
-		
+
 	}
-	
+
 	@Transactional
 	@Override
 	public List<RentalBookingModel> getAllBookings() {
@@ -195,7 +195,7 @@ public class RentServiceimpl implements RentService {
 	public int saveServiceBooking(ServiceBookingModel booking) {
 		// TODO Auto-generated method stub
 		return dao.saveServiceBooking(booking);
-		
+
 	}
 
 	@Transactional
@@ -233,7 +233,7 @@ public class RentServiceimpl implements RentService {
 		return dao.getallRentalInquery();
 	}
 
-	
+
 
 	@Transactional
     @Override
@@ -263,42 +263,42 @@ public class RentServiceimpl implements RentService {
     @Override
     public List<Activity> getRecentActivities(int count) {
         List<Activity> activities = new ArrayList<>();
-        
+
         // Add rental bookings
         List<RentalBookingModel> rentalBookings = dao.findRecentBookings();
         rentalBookings.forEach(b -> activities.add(new Activity(
-            "booking", 
+            "booking",
             "New rental booking for " + b.getProductid().getImageName(),
             b.getBookingDate()
         )));
-        
+
         // Add service bookings
         List<ServiceBookingModel> serviceBookings = dao.findRecentServiceBookings();
         serviceBookings.forEach(b -> activities.add(new Activity(
-            "booking", 
+            "booking",
             "New service booking for " + b.getServiceId().getTitle(),
             b.getBookingDate()
         )));
-        
+
         // Add rental inquiries
         List<RentalInquiryModel> rentalInquiries = dao.findRecentRentalInquiries();
         rentalInquiries.forEach(i -> activities.add(new Activity(
-            "inquiry", 
+            "inquiry",
             "New rental inquiry from " + i.getFullName(),
             i.getInquiryDate()
         )));
-        
+
         // Add service inquiries
         List<ServiceInquiryModel> serviceInquiries = dao.findRecentServiceInquiries();
         serviceInquiries.forEach(i -> activities.add(new Activity(
-            "inquiry", 
+            "inquiry",
             "New service inquiry from " + i.getFullname(),
             i.getInquiryDate()
         )));
-        
+
         // Sort by date descending
         activities.sort((a1, a2) -> a2.getTimestamp().compareTo(a1.getTimestamp()));
-        
+
         // Limit to requested count
         return activities.stream().limit(count).collect(Collectors.toList());
     }
@@ -351,6 +351,6 @@ public class RentServiceimpl implements RentService {
 		// TODO Auto-generated method stub
 		return dao.deleteReview(id);
 	}
-	
+
 
 }

@@ -2,7 +2,16 @@ package com.model;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "tb_service_inquiries")
@@ -23,15 +32,15 @@ public class ServiceInquiryModel {
     @ManyToOne
     @JoinColumn(name = "service_id", nullable = false)
     private ServiceModel serviceId;
-    
+
     @Column(nullable = false)
-    private String status = "PENDING"; // PENDING, CONFIRMED, CANCELLED
-    
+    private String status = "PENDING";
+
     @Column(name = "inquiry_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date inquiryDate = new Date();
 
-    // --- Getters and Setters ---
+
 
     public int getId() {
         return id;
@@ -40,7 +49,7 @@ public class ServiceInquiryModel {
     public void setId(int id) {
         this.id = id;
     }
-    
+
     public String getStatus() {
 		return status;
 	}
@@ -49,7 +58,7 @@ public class ServiceInquiryModel {
 		this.status = status;
 	}
 
-	
+
 
     public String getFullname() {
         return fullname;
@@ -107,7 +116,7 @@ public class ServiceInquiryModel {
 		this.inquiryDate = inquiryDate;
 	}
 
-	
 
-    
+
+
 }

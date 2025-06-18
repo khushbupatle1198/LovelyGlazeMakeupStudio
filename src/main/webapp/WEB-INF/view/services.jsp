@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovely Glaze Beauty Studio - Services</title>
+    <title>Lovely Glaze Makeup Studio - Services</title>
     
     <!-- Font Preload for better performance -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
@@ -33,7 +33,7 @@
 <nav id="mainNav">
     <div class="logo">
     <img src="uploads/logo.jpeg" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
-        <span>Lovely Glaze Beauty Studio</span>
+        <span>Lovely Glaze Makeup Studio</span>
     </div>
     <div class="menu-toggle">
         <i class="fas fa-bars"></i>
@@ -41,6 +41,7 @@
     <ul class="nav-links">
         <li><a href="home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="about"><i class="fas fa-info-circle"></i> About</a></li>
+         <li><a href="rentalhome" target="_blank"><i class="fas fa-info-circle"></i> Mahi`s Rental Studio</a></li>
         <li><a href="gallery"><i class="fas fa-images"></i> Gallery</a></li>
         <li class="active"><a href="services"><i class="fas fa-concierge-bell"></i> Services</a></li>
         <li><a href="contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
@@ -185,7 +186,7 @@
     <div class="footer-container">
         <div class="footer-col">
             <h4>About Us</h4>
-            <p>Lovely Glaze Beauty Studio offers premium beauty services with a personal touch. Our professional team ensures you look and feel your best.</p>
+            <p>Lovely Glaze Makeup Studio offers premium beauty services with a personal touch. Our professional team ensures you look and feel your best.</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -198,6 +199,8 @@
             <ul class="footer-links">
                 <li><a href="home"><i class="fas fa-chevron-right"></i> Home</a></li>
                 <li><a href="about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                <li><a href="rentalhome" target="_blank"><i class="fas fa-chevron-right"></i> Mahi`s Rental Studio</a></li>
+                 
                 <li><a href="services"><i class="fas fa-chevron-right"></i> Services</a></li>
                 <li><a href="gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
                 <li><a href="contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
@@ -226,7 +229,7 @@
     </div>
     
     <div class="footer-bottom">
-        <p>&copy; 2023 Lovely Glaze Beauty Studio. All Rights Reserved.</p>
+        <p>&copy; 2023 Lovely Glaze Makeup Studio. All Rights Reserved.</p>
     </div>
 </footer>
 

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Lovely Glaze Makeup Studio</title>
+    <title>Mahis Gallary</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href=https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap rel="stylesheet">
@@ -37,41 +37,40 @@
 </c:if>
 
 
-
-
-    <!-- Preloader with Logo -->
+<!-- Preloader with Logo -->
     <div class="preloader" id="preloader">
         <div class="preloader-logo logo-animation">
-            <img src="uploads/logo.jpeg" alt="Logo" style="height: 300px; width: 300px; border-radius: 60%;">
+            <img src="uploads/mg.png" alt="Logo" style="height: 300px; width: 300px; border-radius: 60%;">
            
         </div>
     </div>
+
+  
     
     <!-- Main Content (initially hidden) -->
     <div class="page-content">
         <!-- Enhanced Navbar -->
         <nav id="mainNav">
-    <div class="logo">
-        <div class="logo-img">
-            <img src="uploads/logo.jpeg" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
-        </div>
-        <div class="logo-text">
-            <span class="span1">Lovely Glaze Makeup Studio</span>
-        </div>
+            <div class="logo">
+    <div class="logo-img">
+        <img src="uploads/mg.png" alt="Logo" style="height: 50px; width: 50px; border-radius: 60%;">
     </div>
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
+    <div class="logo-text">
+        <span>Mahi`s Rental Studio</span>
+        <h6>Jewellery & Outfit Collection</h6>
     </div>
-    <ul class="nav-links">
-        <li class="active"><a href="home"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="about"><i class="fas fa-info-circle"></i> About</a></li>
-        <li><a href="rentalhome" target="_blank"><i class="fas fa-info-circle"></i> Mahi`s Rental Studio</a></li>
-        <li><a href="gallery"><i class="fas fa-images"></i> Gallery</a></li>
-        <li><a href="services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-        <li><a href="contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
-    </ul>
-</nav>
-
+</div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="rentalhome"><i class="fas fa-home"></i> Home</a></li>
+               
+                <li><a href="rentalgallery"><i class="fas fa-images"></i> Gallery</a></li>
+                
+                <li><a href="rentalcontact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>
+        </nav>
     
         <!-- Banner Section -->
         <div class="banner-slider">
@@ -80,60 +79,48 @@
             </c:forEach>
         </div>
         
-        <!-- About Section -->
-        <section class="about-section">
-    <div class="about-text">
-        <h2>About Us – Lovely Glaze Makeup Studio</h2>
-        <p>Welcome to <strong>Lovely Glaze Makeup Studio</strong>, your one-stop destination for timeless beauty and elegance. We specialize in transforming your special moments into unforgettable memories through expert makeup services, rental dresses, and stunning jewelry collections.</p>
         
-        <p>With our professional team of makeup artists, we enhance your natural beauty using premium products tailored to your unique style. Whether it’s a <em>bridal makeover</em>, <em>event glam</em>, or a <em>party-ready look</em>, we ensure perfection in every detail.</p>
-        
-        <p>Need the perfect outfit? Browse our exclusive rental collection—from classic traditional wear to modern statement pieces. Complete your look with our handpicked jewelry rentals that bring elegance without compromise.</p>
-        
-        <p>At Lovely Glaze, beauty meets convenience. We are committed to delivering style, confidence, and glamour—<em>all in one place</em>.</p>
-        
-           <strong>Owner | Bridal Fashion & Beauty Expert- Shanu Rana</strong> 
-        <h4>✨Look your best, feel your best—with Lovely Glaze.✨</h4>
-        <br>
-        <a class="btn btn-book" href="about"> 
-            <i class="fas fa-book"></i> Learn More
-        </a>
-    </div>
-    
-    <div class="about-image">
-        <img src="uploads/ownerimage.jpg" alt="Our Team">
-    </div>
-</section>
 
         
       
-       <!-- Makeup Gallery Section -->
-<section class="gallery-section">
-    <h2 class="section-title">Makeup Gallery</h2>
-    <div class="gallery-container makeup-gallery">
+       
+
+        
+        
+      <!-- Rental Gallery Section -->
+<section class="gallery-section" style="background-color: white;">
+    <h2 class="section-title">Rental Gallery</h2>
+    <div class="gallery-container">
         <div class="gallery-category">
             <div class="gallery-items">
-                <c:forEach var="img" items="${makeupGallery}">
-                    <div class="gallery-item">
-                        <img src="uploads/${img.fileName}" alt="${img.imageName}">
-                        <div class="item-info">
-                            
+                <c:forEach var="item" items="${galleryList}" varStatus="loop">
+                    <c:if test="${loop.index < 4}">
+                        <div class="gallery-item">
+                            <img src="uploads/rental/${item.filename}" alt="${item.imageName}">
+                            <div class="item-info">
+                                <h4>${item.imageName}</h4>
+                                <p>${item.description}</p>
+                                <div class="item-buttons">
+                                    <button class="btn btn-book">
+                                        <i class="fas fa-calendar-check"></i> Book Now
+                                    </button>
+                                    <button class="btn btn-inquiry">
+                                        <i class="fas fa-question-circle"></i> Inquiry
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </c:if>
                 </c:forEach>
+                
             </div>
         </div>
-
-        <!-- View All Button -->
+         <!-- View All Button -->
         <div style="text-align: center; margin-top: 2rem;">
             <a href="fullgallery" class="btn btn-book">View All</a>
         </div>
     </div>
 </section>
-
-        
-        
-      
 
 
  <!-- Client Reviews Section -->
@@ -279,20 +266,19 @@
                     <h4>About Us</h4>
                     <p>We are a premier rental service provider offering high-quality products and services for all your needs. Our commitment to excellence ensures customer satisfaction.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <a href="https://www.facebook.com/share/1AfdriosfJ/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://youtube.com/@shanuranamakeover?si=d7--4OAiWbF4uzoU"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/mahisgallery888/"><i class="fab fa-instagram"></i></a>
+                </div>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="rentalhome" target="_blank"><i class="fas fa-chevron-right"></i> Mahi`s Rental Studio</a></li>
-                        <li><a href="services"><i class="fas fa-chevron-right"></i> Services</a></li>
-                        <li><a href="gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-                        <li><a href="contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="rentalhome"><i class="fas fa-chevron-right"></i> Home</a></li>
+                       
+                        
+                        <li><a href="rentalgallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="rentalcontact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -300,7 +286,7 @@
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Makeup Services</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Equipment Rental</a></li>
-                        <li><a href="adminlogin"><i class="fas fa-chevron-right"></i> Management</a></li>
+                       
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Event Planning</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Photography Services</a></li>
                     </ul>

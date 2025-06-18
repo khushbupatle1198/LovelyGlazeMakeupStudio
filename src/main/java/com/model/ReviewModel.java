@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "tb_review")
 public class ReviewModel {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -77,5 +77,5 @@ public class ReviewModel {
 		this.reviewDate = reviewDate;
 	}
 
-   
+
 }
