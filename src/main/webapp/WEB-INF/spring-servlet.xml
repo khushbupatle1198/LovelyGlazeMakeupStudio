@@ -49,15 +49,14 @@
 	<!-- <tx:annotation-driven /> -->
 	
 
-	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		name="ds">
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+    <property name="url" value="${DB_URL}" />
+    <property name="username" value="${DB_USER}" />
+    <property name="password" value="${DB_PASS}" />
+</bean>
+<context:property-placeholder system-properties-mode="ENVIRONMENT"/>
 
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"  />
-		<property name="url" value="jdbc:mysql://localhost:3306/db_rentalservice" />
-		<property name="username" value="root" />
-		<property name="password" value="PriyaDev1" />
-
-	</bean>
 
 	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">  
 	  	<property name="host" value="smtp.gmail.com" />  
