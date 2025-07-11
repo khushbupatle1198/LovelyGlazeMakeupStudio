@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: lovely-glaze-makeup-studio
+    env: docker
+    plan: free
+    dockerfilePath: ./RenderDockerfile
