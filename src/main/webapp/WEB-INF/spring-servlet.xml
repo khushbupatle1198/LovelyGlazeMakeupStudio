@@ -49,11 +49,12 @@
 	<!-- <tx:annotation-driven /> -->
 	<context:property-placeholder system-properties-mode="ENVIRONMENT"/>
 
-	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
-    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-    <property name="url" value="${DB_URL}" />
-    <property name="username" value="${DB_USER}" />
-    <property name="password" value="${DB_PASS}" />
+	<!-- Use PostgreSQL driver instead of MySQL -->
+<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+    <property name="driverClassName" value="org.postgresql.Driver" />
+    <property name="url" value="jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}" />
+    <property name="username" value="${DB_USERNAME}" />
+    <property name="password" value="${DB_PASSWORD}" />
 </bean>
 
 
@@ -78,13 +79,16 @@
 		<property name="dataSource" ref="ds"></property>
 
 		<!-- Hibernate properties -->
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
-			</props>
-		</property>
+	<property name="hibernateProperties">
+    <props>
+        <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
+        <prop key="hibernate.format_sql">true</prop>
+        <prop key="hibernate.jdbc.time_zone">UTC</prop>
+    </props>
+</property>
+
 
 		<!-- annotated classes -->
 		<property name="annotatedClasses">
