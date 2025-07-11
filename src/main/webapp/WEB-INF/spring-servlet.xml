@@ -47,7 +47,7 @@
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
 	
 	<!-- <tx:annotation-driven /> -->
-	
+	<context:property-placeholder system-properties-mode="ENVIRONMENT"/>
 
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
     <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
@@ -55,7 +55,7 @@
     <property name="username" value="${DB_USER}" />
     <property name="password" value="${DB_PASS}" />
 </bean>
-<context:property-placeholder system-properties-mode="ENVIRONMENT"/>
+
 
 
 	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">  
